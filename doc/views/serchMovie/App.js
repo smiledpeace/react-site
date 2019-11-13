@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import "../assets/App.css";
+import "../../assets/App.css";
 import Header from "./Header";
 import Movie from "./Movie";
 import Search from "./Search";
@@ -13,7 +13,6 @@ const initialState = {
     movies: [],
     errorMessage: null
 };
-
 
 const reducer = (state, action) => {
     switch (action.type) {
