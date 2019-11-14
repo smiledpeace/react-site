@@ -14,7 +14,7 @@ module.exports = merge(config, {
         progress: true,
         host: '0.0.0.0',
         stats: 'errors-only',
-        port: "9010"
+        port: "9010",
     },
     output: {
         path: path.join(__dirname, '../doc/dist'),
