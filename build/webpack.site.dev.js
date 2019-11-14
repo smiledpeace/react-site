@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = merge(config, {
     entry: {
         app: "./doc/main.js"
@@ -24,10 +26,14 @@ module.exports = merge(config, {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+            chunkFilename: '[id].[contenthash].css',
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../doc/views/index.dev.html'), // HTML 模版文件所在的文件路径
             title: 'index.html'
-        }),
+        })
     ],
     optimization: {
         runtimeChunk: 'single',
@@ -45,7 +51,9 @@ module.exports = merge(config, {
                 cache: true,
                 parallel: true,
                 sourceMap: true // set to true if you want JS source maps
-            })
+            }),
+
+            new OptimizeCSSAssetsPlugin()
         ],
     },
     // webpack4.x 配置压缩

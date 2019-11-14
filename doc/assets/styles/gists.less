@@ -5,3 +5,26 @@ span {
   background: @bg; 
   color: if(@bg-light, black, white);
 }
+
+
+button  {
+    // border: 1px solid transparent;   
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: button;
+    & + button {
+        margin-left: 8px;
+    }
+    
+    // outline: none;
+}
