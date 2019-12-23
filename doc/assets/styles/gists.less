@@ -1,12 +1,10 @@
-@bg: black;
+@bg: #f45;
 @bg-light: boolean(luma(@bg) > 50%);
 
 span {
   background: @bg; 
-  color: if(@bg-light, black, white);
+  color: if(@bg-light, #f45, white);
 }
-
-
 button  {
     // border: 1px solid transparent;   
     margin: 0;
